@@ -39,13 +39,12 @@ body {
 	text-decoration: none;
 	padding: .1em .3em .55em;
 	text-shadow: 0 .2em .2em rgba(0,0,0,2);
-	-webkit-border-radius: .5em;
-	-moz-border-radius: .5em;
-	border-radius: .5em;
-	-webkit-box-shadow: 1emrgba(0, 0, 0, .2);
+	-webkit-border-radius: .2em;
+	-moz-border-radius: .2em;
+	border-radius: .2em;
 	color: #f0eeee;
-	border: solid 1px #fafafa;
-	background: #626262;
+	border: solid 1px #b7b7b7;
+	background: #bcbcbc;
 	font-size: 1.2em;
 }
 .button:hover {
