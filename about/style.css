@@ -2,7 +2,7 @@
 body {
 	padding: 0;
 	margin: 0;
-	font: normal  Helvetiacal,Arial,sans-serif;
+	font: normal  "微软雅黑",Helvetiacal,Arial,sans-serif;
 	background: #c9c8c8;
 }
 #container {
@@ -11,7 +11,7 @@ body {
 	-moz-box-orient:vertical;
 	-webkit-box-orient:vertical;
 	box-shadow: 0em 0em 0.8em 0.6em #68696a ;
-	border:0.3em solid #5d5d5d;
+	border:0.3em solid #ffffff;
 	margin: 1em;
 	font-size: 1em;
 	background: #ffffff;
@@ -45,7 +45,7 @@ body {
 	color: #f0eeee;
 	border: solid 1px #b7b7b7;
 	background: #bcbcbc;
-	font-size: 1.2em;
+	font-size:.91em;
 }
 .button:hover {
 	text-decoration: none;
@@ -59,10 +59,12 @@ body {
 	background: #262525;
 }
 .headline {
+	letter-spacing: .1em;
 	text-align: center;
 	font-size: 3em;
 	font-weight: bolder;
 	padding-top: -0.9em;
+	font-family: "黑体";
 }
 .general {
 	-moz-box-flex: 1;
@@ -86,7 +88,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: 9em 12em;
 	width: 100%;
-	height: 12em;
+	height: 19em;
 	background-position:center;
 }
 .table {
