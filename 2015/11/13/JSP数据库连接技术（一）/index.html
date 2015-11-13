@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>servlet基础 | 指间花开</title>
+    <title>JSP数据库连接技术（一） | 指间花开</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="cmy">
     
 
-    <meta name="keywords" content="Servlet,JavaWeb,基础">
-    <meta name="description" content="Servlet（Server Applet），全称Java Servlet。是用Java编写的服务器端程序。其主要功能在于交互式地浏览和修改数据，生成动态Web内容。狭义的Servlet是指Java语言实现的一个接口，广义的Servlet是指任何实现了这个Servlet接口的类，一般情况下，人们将Servlet理解为后者。">
+    
+    <meta name="description" content="前端开发者技术博客，技术分享。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="servlet基础">
-<meta property="og:url" content="https://smileshirely.github.io/2015/10/23/servlet基础/index.html">
+<meta property="og:title" content="JSP数据库连接技术（一）">
+<meta property="og:url" content="https://smileshirely.github.io/2015/11/13/JSP数据库连接技术（一）/index.html">
 <meta property="og:site_name" content="指间花开">
-<meta property="og:description" content="Servlet（Server Applet），全称Java Servlet。是用Java编写的服务器端程序。其主要功能在于交互式地浏览和修改数据，生成动态Web内容。狭义的Servlet是指Java语言实现的一个接口，广义的Servlet是指任何实现了这个Servlet接口的类，一般情况下，人们将Servlet理解为后者。">
-<meta property="og:updated_time" content="2015-11-13T07:02:04.605Z">
+<meta property="og:description" content="前端开发者技术博客，技术分享。">
+<meta property="og:updated_time" content="2015-11-13T08:21:11.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="servlet基础">
-<meta name="twitter:description" content="Servlet（Server Applet），全称Java Servlet。是用Java编写的服务器端程序。其主要功能在于交互式地浏览和修改数据，生成动态Web内容。狭义的Servlet是指Java语言实现的一个接口，广义的Servlet是指任何实现了这个Servlet接口的类，一般情况下，人们将Servlet理解为后者。">
+<meta name="twitter:title" content="JSP数据库连接技术（一）">
+<meta name="twitter:description" content="前端开发者技术博客，技术分享。">
 
     
     <link rel="alternative" href="/atom.xml" title="指间花开" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/10/23/servlet基础/" title="servlet基础" itemprop="url">servlet基础</a>
+      <a href="/2015/11/13/JSP数据库连接技术（一）/" title="JSP数据库连接技术（一）" itemprop="url">JSP数据库连接技术（一）</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="cmy" target="_blank" itemprop="author">cmy</a>
 		
   <p class="article-time">
-    <time datetime="2015-10-23T13:00:56.000Z" itemprop="datePublished"> 发表于 2015-10-23</time>
+    <time datetime="2015-11-13T08:21:11.000Z" itemprop="datePublished"> 发表于 2015-11-13</time>
     
   </p>
 </header>
@@ -98,59 +98,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#servlet是什么"><span class="toc-number">1.</span> <span class="toc-text">servlet是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#servlet的运行环境"><span class="toc-number">2.</span> <span class="toc-text">servlet的运行环境</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p>Servlet其主要功能在于交互式地浏览和修改数据，生成动态Web内容</p>
-<a id="more"></a>
-<h2 id="servlet是什么">servlet是什么</h2><ul>
-<li>servlet是服务器的小程序，它是相对于Applet（客服端小程序）而言的。<br>相对于传统的CGI，<blockquote>
-<p>CGI(Common Gateway Interface)程序，主要用Perl、Shell Script或C编写，能够向客户端提供动态内容，即每次客户端浏览器访问某一页面时，可以看到不同的内容。CGI应用开发比较困难，因为它要求程序员有处理参数传递的知识，这不是一种通用的技能。CGI不可移植，为某一特定平台编写的CGI应用只能运行于这一环境中。每一个CGI应用存在于一个由客户端请求激活的进程中，并且在请求被服务后被卸载。这种模式将引起很高的内存、CPU开销，而且在同一进程中不能服务多个客户。</p>
-</blockquote>
-</li>
-</ul>
-<p>servlet的主要优势在于，在使用它时，Java虚拟机会一直运行，并用轻量级的Java线程处理每个请求，而不是重量级的操作系统进程，多个客户能够在同一个进程中同时得到服务。</p>
-<ul>
-<li>servlet是接收来自网络的请求，并且做出响应。</li>
-<li>servlet能够实现动态的页面，可以针对不同的请求作出不同的响应，可以实现页面的流转，也可以充当MVC模式中的Ctrl模块，可以控制信息的流向。<blockquote>
-<p>MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="servlet的运行环境">servlet的运行环境</h2><ul>
-<li>servlet是运行在web容器里的，web容器可以控制servlet对象的生命周期，控制请求由servlet对象处理。常用的web服务器：Tomat,  JBoss<blockquote>
-<p>目前最为流行的Tomcat服务器是Apache-Jarkarta开源项目中的一个子项目，是一个小型、轻量级的支持JSP和Servlet 技术的Web服务器，也是初学者学习开发JSP应用的首选。</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>JBoss是一个种遵从JavaEE规范的、开放源代码的、纯Java的EJB服务器，对于J2EE有很好的支持。JBoss采用JML API实现软件模块的集成与管理，其核心服务又是提供EJB服务器，不包含Servlet和JSP的Web容器，不过它可以和Tomcat完美结合。</p>
-<ul>
-<li>初学者使用的Tomat是一个开源的服务器,也用java语言编写的web服务器，所以需要有相应的java运行环境，即JVM。下面先为大家科普一下有关于Java运行环境中的几个专业术语。<ul>
-<li>JVM<br>JVM是Java Virtual Machine（Java虚拟机）的缩写，JVM是一种用于计算设备的规范，它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。</li>
-<li>JDK(Java Development Kit) 是 Java 语言的软件开发工具包(SDK），是程序员使用java语言编写java程序是需要用到的SDK。它包含了JRE、编译java源码的编辑器javac、很多java程序调试的分析工具、java所需的文档以及demo程序等。</li>
-<li>JRE（Java Runtime Environment，Java运行环境），运行JAVA程序时所必须的运行环境，其中包含了java虚拟机、java基础类库，是提供给希望运行java程序的用户使用的。</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>根据上面的说明解释，我们可以很清楚的知道，如果我们只需要运行java程序，只用安装JRE就可以了。但是作为想编写java程序的人而言就得安装JDK了。</p>
-  
+		  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/Servlet/">Servlet</a>►<a class="article-category-link" href="/categories/技术/Servlet/JavaWeb/">JavaWeb</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Servlet/">Servlet</a>
-  </div>
 
 </div>
 
@@ -158,7 +114,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://smileshirely.github.io/2015/10/23/servlet基础/" data-title="servlet基础 | 指间花开" data-tsina="1006592127" class="share clearfix">
+	  <div data-url="https://smileshirely.github.io/2015/11/13/JSP数据库连接技术（一）/" data-title="JSP数据库连接技术（一） | 指间花开" data-tsina="1006592127" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -171,19 +127,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/11/13/JSP数据库连接技术（一）/" title="JSP数据库连接技术（一）">
-  <strong>上一篇：</strong><br/>
-  <span>
-  JSP数据库连接技术（一）</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/10/16/CSS知识归纳/"  title="CSS知识归纳">
+<a href="/2015/10/23/servlet基础/"  title="servlet基础">
  <strong>下一篇：</strong><br/> 
- <span>CSS知识归纳
+ <span>servlet基础
 </span>
 </a>
 </div>
@@ -192,7 +140,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/10/23/servlet基础/" data-title="servlet基础" data-url="https://smileshirely.github.io/2015/10/23/servlet基础/"></div>
+	<div class="ds-thread" data-thread-key="2015/11/13/JSP数据库连接技术（一）/" data-title="JSP数据库连接技术（一）" data-url="https://smileshirely.github.io/2015/11/13/JSP数据库连接技术（一）/"></div>
 </section>
 
 
@@ -202,7 +150,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#servlet是什么"><span class="toc-number">1.</span> <span class="toc-text">servlet是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#servlet的运行环境"><span class="toc-number">2.</span> <span class="toc-text">servlet的运行环境</span></a></li></ol>
+ 
  
   </div>
 
