@@ -1,0 +1,66 @@
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0;
+}
+body{
+	background:#b9bcd6;
+}
+header{
+	background-color: #000;
+	height: 4em;
+	width: 100%;
+}
+#logo{
+	background:url(../images/logo-zh-cn.png) no-repeat center;
+	width: 100%;
+	height: 3em;
+}
+nav ul{
+	list-style: none;
+}
+nav li{
+	display: inline;
+	margin: 1em .1em;
+}
+.button{
+	display: inline-block;
+	text-decoration: none;
+	padding: .2em .2em .2em;
+	outline: none;
+	vertical-align: baseline;
+	cursor: pointer;
+	text-align: center;
+	background: #2a2a2a;
+	color: #d5dceb;
+	font-size: 1.3em;
+	text-shadow: 0 .1em .1em #414141;
+	border-radius: .3em;
+	-webkit-border-radius: .3em;
+	-moz-border-radius: .3em;
+	box-shadow: 0 .1em .2em #a7a7a7;
+	-webkit-box-shadow: 0 .1em .2em #a7a7a7;
+	-moz-box-shadow: 0 .1em .2em #a7a7a7;
+}
+.button:active{
+	background: #000;
+	color: #f0e8e8;
+}
+#contents h1{
+	text-align: center;
+}
+#contents p{
+	text-indent: 2em;
+	text-align: justify;
+	font-size: 1.3em;
+	line-height: 1.2em;
+}
+
+
+
+
+
+
+
+
+
