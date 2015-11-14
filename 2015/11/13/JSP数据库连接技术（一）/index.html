@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://smileshirely.github.io/2015/11/13/JSP数据库连接技术（一）/index.html">
 <meta property="og:site_name" content="指间花开">
 <meta property="og:description" content="JSP使用JDBC技术实现与多种类型数据库的连接,主要有JDBC的四种驱动程序和数据库连接池技术。">
-<meta property="og:updated_time" content="2015-11-13T13:06:46.329Z">
+<meta property="og:updated_time" content="2015-11-14T12:27:09.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP数据库连接技术（一）">
 <meta name="twitter:description" content="JSP使用JDBC技术实现与多种类型数据库的连接,主要有JDBC的四种驱动程序和数据库连接池技术。">
@@ -98,7 +98,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC是什么"><span class="toc-number">1.</span> <span class="toc-text">JDBC是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC的用途"><span class="toc-number">2.</span> <span class="toc-text">JDBC的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC和ODBC"><span class="toc-number">3.</span> <span class="toc-text">JDBC和ODBC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库连接池技术"><span class="toc-number">4.</span> <span class="toc-text">数据库连接池技术</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC是什么"><span class="toc-number">1.</span> <span class="toc-text">JDBC是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC的用途"><span class="toc-number">2.</span> <span class="toc-text">JDBC的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC和ODBC"><span class="toc-number">3.</span> <span class="toc-text">JDBC和ODBC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库连接池技术"><span class="toc-number">4.</span> <span class="toc-text">数据库连接池技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql数据库连接池如何配置(下面介绍一种)"><span class="toc-number">5.</span> <span class="toc-text">MySql数据库连接池如何配置(下面介绍一种)</span></a></li></ol>
 		
 		</div>
 		
@@ -123,6 +123,19 @@
 <p>就不必创建数据库连接，而是直接从数据库连接池中获取一个，用完了也不必关闭连接，而是将连接换回到池子当中，然后继续缓存。</p>
 <ul>
 <li>好处：通过上面对数据库连接池技术用法的描述，大家应该就可以感受到它的好处了<br>1、资源重用<br>2、更快的系统响应速度<br>3、新的资源分配手段</li>
+</ul>
+<h2 id="MySql数据库连接池如何配置(下面介绍一种)">MySql数据库连接池如何配置(下面介绍一种)</h2><ul>
+<li>在MySQL官网上下载，我下载的是mysql-connector-java-5.1.37.tar.gz</li>
+<li><p>配置Tomcat目录中的conf文件下的context.xml文件</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="constant">Resource</span> name=”jdbc/mysql”</span><br><span class="line"> auth=”<span class="constant">Container</span>”</span><br><span class="line"> type=”javax.sql.<span class="constant">DataSource</span>”</span><br><span class="line"> driverClassName=”com.mysql.jdbc.<span class="constant">Driver</span>”</span><br><span class="line"> url=”<span class="symbol">jdbc:</span><span class="symbol">mysql:</span>/<span class="regexp">/localhost:3306/test</span>”</span><br><span class="line"> username=”你的数据库用户名”</span><br><span class="line"> password=”你的密码”</span><br><span class="line"> maxActive=”<span class="number">100</span>″</span><br><span class="line"> maxIdle=”<span class="number">30</span>″</span><br><span class="line"> maxWait=”<span class="number">10000</span>″</span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>如果JDK是1.6之前的版本就要配置Web应用下WEB-INF\web.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;resource-ref&gt;</span><br><span class="line"> &lt;res-ref-name&gt;jdbc/mysql&lt;/res-ref-name&gt;</span><br><span class="line"> &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;</span><br><span class="line"> &lt;res-auth&gt;Container&lt;/res-auth&gt;</span><br><span class="line"> &lt;/resource-ref&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置完就扩在java代码中访问连接池了</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import java.sql.*;</span><br><span class="line">import javax.sql.*;</span><br><span class="line">import javax.naming.*;</span><br><span class="line">try&#123;</span><br><span class="line"><span class="constant">InitialContext</span> ctx = new <span class="constant">InitialContext</span>();</span><br><span class="line"><span class="constant">DataSource</span> ds=(<span class="constant">DataSurce</span>)ctx.lookup(“<span class="symbol">java:</span>comp/env/jdbc/mysql”);</span><br><span class="line"><span class="constant">Connection</span> conn = ds.getConnection();</span><br><span class="line"><span class="constant">Statement</span> stmt = conn.createStatement();</span><br><span class="line"><span class="constant">String</span> strSql = “select * from student”;</span><br><span class="line">………….</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
 </ul>
   
 	</div>
@@ -172,7 +185,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC是什么"><span class="toc-number">1.</span> <span class="toc-text">JDBC是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC的用途"><span class="toc-number">2.</span> <span class="toc-text">JDBC的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC和ODBC"><span class="toc-number">3.</span> <span class="toc-text">JDBC和ODBC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库连接池技术"><span class="toc-number">4.</span> <span class="toc-text">数据库连接池技术</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC是什么"><span class="toc-number">1.</span> <span class="toc-text">JDBC是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC的用途"><span class="toc-number">2.</span> <span class="toc-text">JDBC的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC和ODBC"><span class="toc-number">3.</span> <span class="toc-text">JDBC和ODBC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库连接池技术"><span class="toc-number">4.</span> <span class="toc-text">数据库连接池技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql数据库连接池如何配置(下面介绍一种)"><span class="toc-number">5.</span> <span class="toc-text">MySql数据库连接池如何配置(下面介绍一种)</span></a></li></ol>
  
   </div>
 
