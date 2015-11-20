@@ -4,26 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>《Java编程思想》学习笔记（一） | 指间花开</title>
+    <title>Java基础学习(一) | 指间花开</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="cmy">
     
 
     
-    <meta name="description" content="从Java编程思想中取学习
-&quot;&amp;gt;">
+    <meta name="description" content="Java入门学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《Java编程思想》学习笔记（一）">
-<meta property="og:url" content="https://smileshirely.github.io/2015/11/18/《Java编程思想》学习笔记（一）/index.html">
+<meta property="og:title" content="Java基础学习(一)">
+<meta property="og:url" content="https://smileshirely.github.io/2015/11/19/Java基础学习-一/index.html">
 <meta property="og:site_name" content="指间花开">
-<meta property="og:description" content="从Java编程思想中取学习
-&quot;&amp;gt;">
-<meta property="og:updated_time" content="2015-11-18T12:02:22.759Z">
+<meta property="og:description" content="Java入门学习">
+<meta property="og:updated_time" content="2015-11-19T10:15:21.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《Java编程思想》学习笔记（一）">
-<meta name="twitter:description" content="从Java编程思想中取学习
-&quot;&amp;gt;">
+<meta name="twitter:title" content="Java基础学习(一)">
+<meta name="twitter:description" content="Java入门学习">
 
     
     <link rel="alternative" href="/atom.xml" title="指间花开" type="application/atom+xml">
@@ -85,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/18/《Java编程思想》学习笔记（一）/" title="《Java编程思想》学习笔记（一）" itemprop="url">《Java编程思想》学习笔记（一）</a>
+      <a href="/2015/11/19/Java基础学习-一/" title="Java基础学习(一)" itemprop="url">Java基础学习(一)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="cmy" target="_blank" itemprop="author">cmy</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-18T01:52:02.000Z" itemprop="datePublished"> 发表于 2015-11-18</time>
+    <time datetime="2015-11-19T02:41:24.000Z" itemprop="datePublished"> 发表于 2015-11-19</time>
     
   </p>
 </header>
@@ -101,30 +98,41 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#<!-more->"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java基础知识"><span class="toc-number">1.1.</span> <span class="toc-text">Java基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始写Java程序"><span class="toc-number">1.2.</span> <span class="toc-text">开始写Java程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于编码风格"><span class="toc-number">1.3.</span> <span class="toc-text">关于编码风格</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于对象"><span class="toc-number">1.1.</span> <span class="toc-text">关于对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类和对象两者之间的区别"><span class="toc-number">1.2.</span> <span class="toc-text">类和对象两者之间的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个对象"><span class="toc-number">1.3.</span> <span class="toc-text">创建一个对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">2.</span> <span class="toc-text">变量</span></a></li></ol>
 		
 		</div>
 		
-		<p>从Java编程思想中取学习</p>
-<h2 id="<!-more->"><a id="more"></a></h2><h3 id="Java基础知识">Java基础知识</h3><ul>
-<li>为了给一个类库生成不会与其他名字混淆的名字，Java设计者希望程序员反过来使用自己的Internet域名，以保证它们呢是独一无二的</li>
-<li>为了消除类名容易混淆的冲突，可以用关键字import来准确地告诉编译器你想要的类是什么。import指示编译器导入一个包，就 是一个类库。大对数时候，我们使用与编译器附在一起的Java类库里的构件，就只需要import java.util.ArrayList:<br>这行代码告诉了编译器，你想使用Java的ArrayList类。可以用通配符 来达到这个目的：import java.util.* </li>
-<li>static关键字：当声明一个事物是static时，就意味着这个域或方法不会与包含它的那个类的任何对象关联在一起<h3 id="开始写Java程序">开始写Java程序</h3>我是用的Eclipse，网上教程很多，大家可以了解一下怎么在这个编译环境下写Java程序。<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line">public class <span class="type">HelloDate</span> &#123;</span><br><span class="line"></span><br><span class="line">	public <span class="keyword">static</span> <span class="type">void</span> main(<span class="type">String</span>[] args) &#123;</span><br><span class="line">		// <span class="type">TODO</span> <span class="type">Auto</span>-generated <span class="keyword">method</span> stub</span><br><span class="line">		<span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"Hello,it's: "</span>);</span><br><span class="line">		<span class="type">System</span>.<span class="keyword">out</span>.println(new <span class="type">Date</span>());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+		<p>Java入门学习<br><a id="more"></a></p>
+<h2 id="基本概念">基本概念</h2><p>不管你的程序有多大，都一定会有一个mian()来作为程序的起点</p>
+<ul>
+<li><h3 id="关于对象">关于对象</h3>当设计类的时候，要记得对象是靠类的模型塑造出来的。对象是已知的事物，对象会执行的动作。<br>对象本身已知的事物被称为：实例变量；对象可以执行的动作称为：方法。</li>
+<li><h3 id="类和对象两者之间的区别">类和对象两者之间的区别</h3>类不是对象，类是对象的蓝图：它会告诉虚拟机如何创建某种类型的对象，根据某类创建出的对象都会有自己的实例变量。</li>
+</ul>
+<h3 id="创建一个对象">创建一个对象</h3><ul>
+<li><p>第一步：编写类    </p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Dog</span> &#123;</span><br><span class="line">	<span class="keyword">int</span> size;</span><br><span class="line">	String breeed;<span class="comment">//实例变量</span></span><br><span class="line">	String name;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">bark</span>(<span class="params"></span>)</span>&#123;<span class="comment">//方法</span></span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"Ruff!Ruff!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二步：编写测试用的类以及在测试类中建立对象并存取对象的变量和方法</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> HelloDate &#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Dog d = <span class="keyword">new</span> Dog();<span class="comment">//建立Dog对象</span></span><br><span class="line">		d.size =<span class="number">40</span>;<span class="comment">//存取该对象的变量</span></span><br><span class="line">		d.bark();<span class="comment">//调用它的方法</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>打印出来的结果就是         </p>
-<blockquote>
-<p>Hello,it’s:<br>Wed Nov 18 15:36:25 CST 2015</p>
-</blockquote>
-<p>运行的快捷键是:ctrl + F11<br>我们来分析一下这句话，    public static void main(String[] args) {<br>其中，public关键字指的是一个可由外部调用的方法，main()方法的参数是一个String对象的数组。在这个程序中并未用到Java编译器要求必须这样做，因为args要用来存储命令行参数。<em>args是一个字符串数组的变量名，不是关键字，是arguments的缩写</em></p>
-<p>书上提到了javadoc</p>
-<blockquote>
-<p>序源代码中抽取类、方法、成员等注释形成一个和源代码配套的API帮助文档。也就是说，只要在编写程序时以一套特定的标签作注释，在程序编写完成后，通过Javadoc就可以同时形成程序的开发文档了。<br>javadoc命令是用来生成自己API文档的，使用方式：在dos中在目标文件所在目录输入javadoc +文件名.java。</p>
-</blockquote>
-<p>觉得很好奇，就自己百度了一下，<a href="&lt;http://jingyan.baidu.com/article/2c8c281df777d90008252aff.html">&lt;http://jingyan.baidu.com/article/2c8c281df777d90008252aff.html</a>&gt;，跟着这个教程，给刚刚生成的java程序，快速生成了javadoc，顿时对java学习来了兴趣。也参考了一下<a href="&lt;http://blog.csdn.net/shy_snow/article/details/6501623">&lt;http://blog.csdn.net/shy_snow/article/details/6501623</a>&gt;，在Eclipse中也生成了javadoc。</p>
-<h3 id="关于编码风格">关于编码风格</h3><ul>
-<li>因为在”Java编程语言编码约定”中，代码风格是规定的是类名的首字母要大写；如果类名由几个单词构成，就把它们并在一起（也就是说，不要用用下划线来分割名字，PS：虽然我平时老是爱这样），其中每个内部单词的首字母都采用大写的形式。这种风格也称为“驼峰风格”（其实最开始知道这个名词，还是同为程序员的男票告诉我的）。<br>这个风格几乎适用于java中的其他所有内用，除了标识符以外（标识符的第一个字母采用小写）</li>
+<p>最后运行输出的结果是<br>Ruff!Ruff!</p>
+<p>在Java程序是由一组类所组成，其中一二个类会带有启动用的main()方法。</p>
+<h2 id="变量">变量</h2><p>变量有两种：primitive主数据类型和引用<br><em>变量必须有类型</em><br>每种存放数值primitive主要数据类型变量有固定的位数</p>
+<p>类方法或变量命名：</p>
+<ul>
+<li>名称必须以字母、下划线或$符号开头，不能用数字开头</li>
+<li>除了第一个字符以外，后面就可以用数字的。反正不要在第一个字符就行</li>
+<li>只要符合上述两条规则，你就可以随意地命名，但还是要避开Java的保留字。保留字有：public、static、void、boolean、char、byte 、short、 int、 long、 float、 double等。</li>
 </ul>
+<p>对象的声明、创建与复制的步骤:</p>
+<ul>
+<li>声明一个引用变量</li>
+<li>创建对象</li>
+<li>连接对象和引用</li>
+</ul>
+<p><em>对于任意一个Java虚拟机来说，所有的引用大小都一样，但是不同的Java虚拟机间可能会以不同的方式来表示引用，因此某个Java虚拟机的引用大小可能会大于或小于另一个Java虚拟机的引用</em></p>
+<p><strong>println和print的区别</strong><br>println打印的时候自带了换行，下一次在打印的时候从下一行开始打印。<br>print不换行，下次打印的时候在这次打印的东西后面直接打印。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -137,7 +145,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://smileshirely.github.io/2015/11/18/《Java编程思想》学习笔记（一）/" data-title="《Java编程思想》学习笔记（一） | 指间花开" data-tsina="1006592127" class="share clearfix">
+	  <div data-url="https://smileshirely.github.io/2015/11/19/Java基础学习-一/" data-title="Java基础学习(一) | 指间花开" data-tsina="1006592127" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -151,18 +159,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/11/18/《JavaScript高级程序设计》之创建对象/" title="《JavaScript高级程序设计》之创建对象">
+ <a href="/2015/11/19/JavaScript高级程序设计之函数表达式/" title="JavaScript高级程序设计之函数表达式">
   <strong>上一篇：</strong><br/>
   <span>
-  《JavaScript高级程序设计》之创建对象</span>
+  JavaScript高级程序设计之函数表达式</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/11/17/《JavaScript高级程序设计》之面向对象的程序设计/"  title="《JavaScript高级程序设计》之面向对象的程序设计">
+<a href="/2015/11/18/《JavaScript高级程序设计》之创建对象/"  title="《JavaScript高级程序设计》之创建对象">
  <strong>下一篇：</strong><br/> 
- <span>《JavaScript高级程序设计》之面向对象的程序设计
+ <span>《JavaScript高级程序设计》之创建对象
 </span>
 </a>
 </div>
@@ -171,7 +179,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/11/18/《Java编程思想》学习笔记（一）/" data-title="《Java编程思想》学习笔记（一）" data-url="https://smileshirely.github.io/2015/11/18/《Java编程思想》学习笔记（一）/"></div>
+	<div class="ds-thread" data-thread-key="2015/11/19/Java基础学习-一/" data-title="Java基础学习(一)" data-url="https://smileshirely.github.io/2015/11/19/Java基础学习-一/"></div>
 </section>
 
 
@@ -181,7 +189,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#<!-more->"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java基础知识"><span class="toc-number">1.1.</span> <span class="toc-text">Java基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始写Java程序"><span class="toc-number">1.2.</span> <span class="toc-text">开始写Java程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于编码风格"><span class="toc-number">1.3.</span> <span class="toc-text">关于编码风格</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于对象"><span class="toc-number">1.1.</span> <span class="toc-text">关于对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类和对象两者之间的区别"><span class="toc-number">1.2.</span> <span class="toc-text">类和对象两者之间的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个对象"><span class="toc-number">1.3.</span> <span class="toc-text">创建一个对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">2.</span> <span class="toc-text">变量</span></a></li></ol>
  
   </div>
 
