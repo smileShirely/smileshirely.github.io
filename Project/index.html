@@ -1,29 +1,117 @@
 
   
-    <!DOCTYPE HTML>
+    <!DOCTYPE html>
 <html>
-<head>
-	<title>物联网首页</title>
-	<link rel="stylesheet" href="css/style.css">
-	<meta charset="UTF-8" name="viewport" content="width=device-width,user-sczlable=no">
-</head>
-<body>
-	<section id="main">
-		<header>
-			<div id="logo"></div>
-		</header>
-		<nav>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>新年倒计时</title>
+		<link href="style.css" rel="stylesheet">
+		<script>
+			var canvas;
+			var context;
+			function window_onload() {
+				canvas = document.getElementById("canvas");
+				context = canvas.getContext('2d');
+				setInterval("draw()",1000);
+			}
+			function draw() {
+				var radius = Math.min(canvas.width / 2,canvas.height / 2) - 5;
+				var centerx = canvas.width/2;
+				var centery = canvas.height/2;
+				context.clearRect(0,0,canvas.width,canvas.height);
+				context.save();
+				
+				//绘制时钟罗盘
+				context.lineWidth = 9;
+				context.fillStyle = 'rgba(255,255,1,0)';
+				context.strokeStyle = '#d8b457';
+				context.beginPath();
+				context.arc(centerx,centery,radius,0, Math.PI*2,0);
+				context.fill();
+				context.stroke();
+				context.closePath();
+				context.restore();
+				
+				//绘制时钟上表示小时的文字
+				var r = radius - 16;
+				context.font= 'bold 22px cursive';
+				var n = (1/12)*Math.PI*2 - (Math.PI/2);
+				context.fillStyle = '#c6c686';
+				Drawtext('Ⅰ', centerx + (0.5 * r), centery - (0.88 * r));
+				Drawtext('Ⅱ', centerx + (0.866 * r), centery - (0.5 * r));
+				Drawtext('Ⅲ', centerx + r, centery);  
+				Drawtext('Ⅳ', centerx + (0.866 * r), centery + (0.5 * r));
+				Drawtext('Ⅴ', centerx + (0.5 * r), centery + (0.86 * r));
+				Drawtext('Ⅵ', centerx, centery + r);
+				Drawtext('Ⅶ', centerx - (0.5 * r), centery + (0.86 * r));
+				Drawtext('Ⅷ', centerx - (0.866 * r), centery + (0.5 * r));
+				Drawtext('Ⅸ', centerx - r, centery);
+				Drawtext('Ⅹ', centerx - (0.866 * r), centery - (0.5 * r));
+				Drawtext('Ⅺ', centerx - (0.5 * r), centery - (0.88 * r));
+				Drawtext('Ⅻ', centerx, centery - r);
+							
+				//绘制小时指针
+				context.arc(centerx,centery,radius - 65, h1 + 0.01, h1, 1);
+				context.lineTo(centerx,centery);
+				//绘制时钟指针
+				var date = new Date();
+				var h = date.getHours();
+				var m = date.getMinutes();
+				var s = date.getSeconds();
+				var h1 = ((h+(m/60))/12) * Math.PI*2 - (Math.PI/2);
+				var m1 = ((m+(s/60))/60) * Math.PI*2 - (Math.PI/2);
+				var s1 = (s/60) * Math.PI*2;
+				var a = ((h/12) * Math.PI*2) - 1.57 + ((m / 60) * 0.524);
+				context.save();
+				context.lineWidth = 3;//指针的宽度
+				context.fillStyle = "#c6c686";
+				context.strokeStyle = "#e3b367";
+				context.beginPath();
+				//绘制小时指针
+				context.arc(centerx,centery,radius - 65, h1 + 0.01, h1, 1);
+				context.lineTo(centerx,centery);
+				//绘制分钟指针
+				context.arc(centerx,centery,radius -45, m1 + 0.01, m1, 1);
+				context.lineTo(centerx,centery);
+				//绘制秒钟指针
+				context.arc(centerx,centery,radius-30, s1 + 0.01, s1, 1);
+				context.lineTo(centerx,centery);			
+				context.closePath();
+				context.fill();
+				context.stroke();
+				context.restore();
+				
+				context.fillStyle = '#222220';
+				context.beginPath();
+				context.arc(centerx,centery,9,0,Math.PI*2,0);//创建指针的中心点的路径
+				context.closePath();
+				context.fill();
+				
+			}
+			function Drawtext(text, x, y) {
+				context.save();
+				x -= (context.measureText(text).width /2);
+				y += 9;
+				context.beginPath();
+				context.translate(x, y);
+				context.fillText(text,0,0);
+				context.restore();
+			}
+		</script>
+	</head>
+	<body onload="window_onload()">
+		<div id="MI">
 			<ul>
-				<li><a href="../Project/test.html" class="button">企业用户</a></li>
-				<li><a href="#" class="button">个人用户</a></li>
+				<li><p>2</p></li>
+				<li>
+					<div><canvas id="canvas" width="250px" height="250px"></canvas></div>
+				</li>
+				<li><p>1</p></li>
+				<li><p>6</p></li>
 			</ul>
-		</nav>
-	</section>
-	<section id="contents">
-		<h1>物联网介绍</h1>
-		<p>物联网是新一代信息技术的重要组成部分，也是“信息化”时代的重要发展阶段。“Internet of things（IoT）”,顾名思义，物联网就是物物相连的互联网。</p>
-		<p>物联网通过智能感知、识别技术与普适计算等通信感知技术，广泛应用于网络的融合中，也因此被称为继计算机、互联网之后世界信息产业发展的第三次浪潮。物联网是互联网的应用拓展，与其说物联网是网络，不如说物联网是业务和应用。因此，应用创新是物联网发展的核心，以用户体验为核心的创新2.0是物联网发展的灵魂。</p>
-	</section>
-</body>
+			<p>Happy New Year!</p>
+		</div>
+	</body>
 </html>
   
