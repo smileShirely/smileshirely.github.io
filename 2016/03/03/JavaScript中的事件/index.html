@@ -4,23 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>《JavaScript高级程序设计》之创建对象 | 指间花开</title>
+    <title>JavaScript中的事件 | 指间花开</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="cmy">
     
 
-    
-    <meta name="description" content="JavaScript也是一种面向对象的语言">
+    <meta name="keywords" content="事件">
+    <meta name="description" content="JavaScript与HTML之间的交互是通过事件实现的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《JavaScript高级程序设计》之创建对象">
-<meta property="og:url" content="https://smileshirely.github.io/2015/11/18/《JavaScript高级程序设计》之创建对象/index.html">
+<meta property="og:title" content="JavaScript中的事件">
+<meta property="og:url" content="https://smileshirely.github.io/2016/03/03/JavaScript中的事件/index.html">
 <meta property="og:site_name" content="指间花开">
-<meta property="og:description" content="JavaScript也是一种面向对象的语言">
-<meta property="og:updated_time" content="2015-11-18T12:15:37.956Z">
+<meta property="og:description" content="JavaScript与HTML之间的交互是通过事件实现的">
+<meta property="og:image" content="https://smileshirely.github.io/C:\Users\cmy\hexo_blog\source\_posts\img\JavaScript中的事件\load1.gif">
+<meta property="og:image" content="https://smileshirely.github.io/img/2016-03-03-JavaScript中的事件/load1.gif">
+<meta property="og:updated_time" content="2016-03-03T05:47:09.677Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《JavaScript高级程序设计》之创建对象">
-<meta name="twitter:description" content="JavaScript也是一种面向对象的语言">
+<meta name="twitter:title" content="JavaScript中的事件">
+<meta name="twitter:description" content="JavaScript与HTML之间的交互是通过事件实现的">
 
     
     <link rel="alternative" href="/atom.xml" title="指间花开" type="application/atom+xml">
@@ -82,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/18/《JavaScript高级程序设计》之创建对象/" title="《JavaScript高级程序设计》之创建对象" itemprop="url">《JavaScript高级程序设计》之创建对象</a>
+      <a href="/2016/03/03/JavaScript中的事件/" title="JavaScript中的事件" itemprop="url">JavaScript中的事件</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="cmy" target="_blank" itemprop="author">cmy</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-18T12:10:00.000Z" itemprop="datePublished"> 发表于 2015-11-18</time>
+    <time datetime="2016-03-03T03:02:55.000Z" itemprop="datePublished"> 发表于 2016-03-03</time>
     
   </p>
 </header>
@@ -98,16 +100,42 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是事件和事件处理程序"><span class="toc-number">1.</span> <span class="toc-text">什么是事件和事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的类型（DOM3级事件）"><span class="toc-number">2.</span> <span class="toc-text">事件的类型（DOM3级事件）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI事件"><span class="toc-number">2.1.</span> <span class="toc-text">UI事件</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>JavaScript也是一种面向对象的语言<br><a id="more"></a></p>
+		<p>要点归纳</p>
+<a id="more"></a>
+<p>JavaScript与HTML之间的交互是通过事件实现的。事件，就是文档或浏览器窗口中发生的一些特定的的交互瞬间，可以用侦听器（也叫处理程序）来预订事件，就能使时间发生时执行相应的代码。</p>
+<h2 id="什么是事件和事件处理程序">什么是事件和事件处理程序</h2><ul>
+<li>事件： 指的是用户或浏览器自身执行的某种动作。我们平时接触到的如click、load、mouseover这些都是事件的名字。</li>
+<li><p>事件处理程序(事件侦听器)：指的是响应某个事件的函数。onclick、onload这些以”on”+事件名字的就是我们事件处理程序的名字。想了解更多的事件处理程序的种类可以参考<a href="http://www.w3school.com.cn/jsref/jsref_events.asp" target="_blank" rel="external">W3School的JavaScript事件参考手册</a></p>
+<h2 id="事件的类型（DOM3级事件）">事件的类型（DOM3级事件）</h2><h3 id="UI事件">UI事件</h3><p>UI(User Interface)事件是当用户与页面元素交互时触发的</p>
+</li>
+<li><p>load事件：这是一种我们最常用的事件，是当页面完全加载后，就会触发Window上面的load是事件。定义这个事件的方式有以下两种</p>
+<ul>
+<li>通过JS来指定事件处理程序的方式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="string">"clicked"</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="C:\Users\cmy\hexo_blog\source\_posts\img\JavaScript中的事件\load1.gif" alt=""><br>false表示在冒泡阶段调用事件处理程序，如果是true则表示在捕获阶段调用事件处理程序</p>
+<p><img src="img/2016-03-03-JavaScript中的事件/load1.gif" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/前端/">前端</a>►<a class="article-category-link" href="/categories/技术/前端/JavaScript/">JavaScript</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
+  </div>
 
 </div>
 
@@ -115,7 +143,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://smileshirely.github.io/2015/11/18/《JavaScript高级程序设计》之创建对象/" data-title="《JavaScript高级程序设计》之创建对象 | 指间花开" data-tsina="1006592127" class="share clearfix">
+	  <div data-url="https://smileshirely.github.io/2016/03/03/JavaScript中的事件/" data-title="JavaScript中的事件 | 指间花开" data-tsina="1006592127" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -128,19 +156,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/11/19/Java基础学习-一/" title="Java基础学习(一)">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Java基础学习(一)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/11/18/《Java编程思想》学习笔记（一）/"  title="《Java编程思想》学习笔记（一）">
+<a href="/2016/01/16/DIV-CSS整理归纳/"  title="DIV+CSS整理归纳">
  <strong>下一篇：</strong><br/> 
- <span>《Java编程思想》学习笔记（一）
+ <span>DIV+CSS整理归纳
 </span>
 </a>
 </div>
@@ -149,7 +169,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/11/18/《JavaScript高级程序设计》之创建对象/" data-title="《JavaScript高级程序设计》之创建对象" data-url="https://smileshirely.github.io/2015/11/18/《JavaScript高级程序设计》之创建对象/"></div>
+	<div class="ds-thread" data-thread-key="2016/03/03/JavaScript中的事件/" data-title="JavaScript中的事件" data-url="https://smileshirely.github.io/2016/03/03/JavaScript中的事件/"></div>
 </section>
 
 
@@ -159,7 +179,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是事件和事件处理程序"><span class="toc-number">1.</span> <span class="toc-text">什么是事件和事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的类型（DOM3级事件）"><span class="toc-number">2.</span> <span class="toc-text">事件的类型（DOM3级事件）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI事件"><span class="toc-number">2.1.</span> <span class="toc-text">UI事件</span></a></li></ol></li></ol>
  
   </div>
 
