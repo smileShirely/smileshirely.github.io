@@ -17,9 +17,10 @@
 <meta property="og:url" content="https://smileshirely.github.io/2016/03/03/JavaScript中的事件/index.html">
 <meta property="og:site_name" content="指间花开">
 <meta property="og:description" content="JavaScript与HTML之间的交互是通过事件实现的">
-<meta property="og:image" content="https://smileshirely.github.io/C:\Users\cmy\hexo_blog\source\_posts\img\JavaScript中的事件\load1.gif">
 <meta property="og:image" content="https://smileshirely.github.io/img/2016-03-03-JavaScript中的事件/load1.gif">
-<meta property="og:updated_time" content="2016-03-03T05:47:09.677Z">
+<meta property="og:image" content="https://smileshirely.github.io/img/2016-03-03-JavaScript中的事件/load2.gif">
+<meta property="og:image" content="https://smileshirely.github.io/img/2016-03-03-JavaScript中的事件/load3.gif">
+<meta property="og:updated_time" content="2016-03-03T10:38:59.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中的事件">
 <meta name="twitter:description" content="JavaScript与HTML之间的交互是通过事件实现的">
@@ -100,7 +101,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是事件和事件处理程序"><span class="toc-number">1.</span> <span class="toc-text">什么是事件和事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的类型（DOM3级事件）"><span class="toc-number">2.</span> <span class="toc-text">事件的类型（DOM3级事件）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI事件"><span class="toc-number">2.1.</span> <span class="toc-text">UI事件</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是事件和事件处理程序"><span class="toc-number">1.</span> <span class="toc-text">什么是事件和事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的类型"><span class="toc-number">2.</span> <span class="toc-text">事件的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI事件"><span class="toc-number">2.1.</span> <span class="toc-text">UI事件</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -110,18 +111,32 @@
 <h2 id="什么是事件和事件处理程序">什么是事件和事件处理程序</h2><ul>
 <li>事件： 指的是用户或浏览器自身执行的某种动作。我们平时接触到的如click、load、mouseover这些都是事件的名字。</li>
 <li><p>事件处理程序(事件侦听器)：指的是响应某个事件的函数。onclick、onload这些以”on”+事件名字的就是我们事件处理程序的名字。想了解更多的事件处理程序的种类可以参考<a href="http://www.w3school.com.cn/jsref/jsref_events.asp" target="_blank" rel="external">W3School的JavaScript事件参考手册</a></p>
-<h2 id="事件的类型（DOM3级事件）">事件的类型（DOM3级事件）</h2><h3 id="UI事件">UI事件</h3><p>UI(User Interface)事件是当用户与页面元素交互时触发的</p>
+<h2 id="事件的类型">事件的类型</h2><h3 id="UI事件">UI事件</h3><p>UI(User Interface)事件是当用户与页面元素交互时触发的</p>
 </li>
 <li><p>load事件：这是一种我们最常用的事件，是当页面完全加载后，就会触发Window上面的load是事件。定义这个事件的方式有以下两种</p>
 <ul>
-<li>通过JS来指定事件处理程序的方式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="string">"clicked"</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<li>通过JS来指定事件处理程序的方式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"load"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="string">"loaded"</span>);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<p><img src="C:\Users\cmy\hexo_blog\source\_posts\img\JavaScript中的事件\load1.gif" alt=""><br>false表示在冒泡阶段调用事件处理程序，如果是true则表示在捕获阶段调用事件处理程序</p>
-<p><img src="img/2016-03-03-JavaScript中的事件/load1.gif" alt=""></p>
-  
+<p><img src="/img/2016-03-03-JavaScript中的事件/load1.gif" alt=""><br>false表示在冒泡阶段调用事件处理程序，如果是true则表示在捕获阶段调用事件处理程序<br>这是采用的DOM2级事件中定义的方法:addEventListener()和         removeEventListener()。这个DOM0级方法以研发，添加的事件处理程序也是在依附的元素的作用域中运行<br>以上的程序在IE9之前的版本中就无法正确运行了，旧版的IE使用的是attachEvent方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.attachEvent(<span class="string">"onload"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	alert(<span class="string">"loaded"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>值得注意的是，attachEvent()的第一个参数是”onclick”,而不是事件名。<br>在IE中使用这个方法与使用DOM0级方法的主要区别就在于事件处理程序的作用域。<br>前者中的事件处理程序会在其所属元素的作用域内运行，而后者实在全局作用域中运行。</p>
+<ul>
+<li>为<body>元素添加一个onload特性<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">body</span> onload=<span class="string">"alert('loaded')"</span>&gt;</span><br></pre></td></tr></table></figure>
+</body></li>
+</ul>
+<p>这种方法的目的是为了保证向后兼容，但是并不是很必要，我们使用前面的JS的方式就好，浏览器基本都能很好的支持<br> <strong>根据DOM2级的规范，应该是在document而不是window上出发load事件,但是所有浏览器都在window上实现了该事件，以确保向后兼用</strong><br> 下面我们举几个在图片上加载load事件的例子(<strong>没有兼容旧版IE</strong>)<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"1.jpg"</span> <span class="attribute">id</span>=<span class="value">"cImg"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">	<span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">"cImg"</span>);</span><br><span class="line">	img.addEventListener(<span class="string">"load"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">		event = event;</span><br><span class="line">		alert(event.target.src);</span><br><span class="line">	&#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>从上面的例子中我们可以看出当图片加载完以后我们获取到的图片的url信息<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"load"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>);</span><br><span class="line">		img.addEventListener(<span class="string">"load"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">			alert(event.target.src);</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="built_in">document</span>.body.appendChild(img);</span><br><span class="line">		img.src = <span class="string">"1.jpg"</span>;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><img src="/img/2016-03-03-JavaScript中的事件/load2.gif" alt=""><br>根据上面的例子，我们创建了一个新的img元素，在图片加载完后就显示出了图片的url信息<br>最后我们再写一下通过load事件反映出通过JS的将css的外部样式表添加进去<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="keyword">link</span> = document<span class="built_in">.</span>createElement(<span class="string">"link"</span>);</span><br><span class="line"><span class="keyword">link</span><span class="built_in">.</span><span class="keyword">type</span> = <span class="string">"text/css"</span>;</span><br><span class="line"><span class="keyword">link</span><span class="built_in">.</span>rel = <span class="string">"stylesheet"</span>;</span><br><span class="line"><span class="keyword">link</span><span class="built_in">.</span>addEventListener(<span class="string">"load"</span>, function(event) &#123;</span><br><span class="line">	alert(<span class="string">"css loaded"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">link</span><span class="built_in">.</span>href = <span class="string">"example.css"</span>;</span><br><span class="line">document<span class="built_in">.</span>getElementsByTagName(<span class="string">"head"</span>)<span class="preprocessor">[</span><span class="number">0</span><span class="preprocessor">]</span><span class="markup">.appendChild(link);</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/img/2016-03-03-JavaScript中的事件/load3.gif" alt=""><br>通过我们添加进去的节点，example.css中的样式成功渲染了出来，并且可以在页面加载完以后弹出信息。添加<script>节点和这个类似。</p>
+<ul>
+<li>unload事件：顾名思义，就是和load事件相反的事件，在文档被完全卸载后触发。只要用户从一个页面切换到另一个页面，就会发生的事件。用这个事件我们可以做什么呢？很自然可以想到的就是清除引用，以避免内存泄漏。指定onunload事件处理程序的方式也有两种。使用方法和onload相似，在这里就多I做分析了。</li>
+<li>resize事件：当浏览器窗口被调整到新的高度或宽度时，就会触发该事件.由于它实在window上触发，所以也可以用我们上面说的两种方式来实现。推荐使用的还是JS方式。</li>
+<li>scroll事件：它表示的是页面中相应元素的变化。</li>
+<li></li>
+</ul>
+</script></p>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -179,7 +194,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是事件和事件处理程序"><span class="toc-number">1.</span> <span class="toc-text">什么是事件和事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的类型（DOM3级事件）"><span class="toc-number">2.</span> <span class="toc-text">事件的类型（DOM3级事件）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI事件"><span class="toc-number">2.1.</span> <span class="toc-text">UI事件</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是事件和事件处理程序"><span class="toc-number">1.</span> <span class="toc-text">什么是事件和事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的类型"><span class="toc-number">2.</span> <span class="toc-text">事件的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI事件"><span class="toc-number">2.1.</span> <span class="toc-text">UI事件</span></a></li></ol></li></ol>
  
   </div>
 
