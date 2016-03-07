@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>JSP数据库连接技术（一） | 指间花开</title>
+    <title>JS性能优化 | 指间花开</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="cmy">
     
 
-    
-    <meta name="description" content="JSP使用JDBC技术实现与多种类型数据库的连接,主要有JDBC的四种驱动程序和数据库连接池技术。">
+    <meta name="keywords" content="JS性能优化">
+    <meta name="description" content="JavaScript与HTML之间的交互是通过事件实现的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSP数据库连接技术（一）">
-<meta property="og:url" content="https://smileshirely.github.io/2015/11/13/JSP数据库连接技术（一）/index.html">
+<meta property="og:title" content="JS性能优化">
+<meta property="og:url" content="https://smileshirely.github.io/2016/03/06/JS性能优化/index.html">
 <meta property="og:site_name" content="指间花开">
-<meta property="og:description" content="JSP使用JDBC技术实现与多种类型数据库的连接,主要有JDBC的四种驱动程序和数据库连接池技术。">
-<meta property="og:updated_time" content="2015-11-14T12:29:19.219Z">
+<meta property="og:description" content="JavaScript与HTML之间的交互是通过事件实现的">
+<meta property="og:updated_time" content="2016-03-06T13:45:27.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSP数据库连接技术（一）">
-<meta name="twitter:description" content="JSP使用JDBC技术实现与多种类型数据库的连接,主要有JDBC的四种驱动程序和数据库连接池技术。">
+<meta name="twitter:title" content="JS性能优化">
+<meta name="twitter:description" content="JavaScript与HTML之间的交互是通过事件实现的">
 
     
     <link rel="alternative" href="/atom.xml" title="指间花开" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/13/JSP数据库连接技术（一）/" title="JSP数据库连接技术（一）" itemprop="url">JSP数据库连接技术（一）</a>
+      <a href="/2016/03/06/JS性能优化/" title="JS性能优化" itemprop="url">JS性能优化</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="cmy" target="_blank" itemprop="author">cmy</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-13T08:21:11.000Z" itemprop="datePublished"> 发表于 2015-11-13</time>
+    <time datetime="2016-03-06T13:41:13.000Z" itemprop="datePublished"> 发表于 2016-03-06</time>
     
   </p>
 </header>
@@ -98,50 +98,39 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC是什么"><span class="toc-number">1.</span> <span class="toc-text">JDBC是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC的用途"><span class="toc-number">2.</span> <span class="toc-text">JDBC的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC和ODBC"><span class="toc-number">3.</span> <span class="toc-text">JDBC和ODBC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库连接池技术"><span class="toc-number">4.</span> <span class="toc-text">数据库连接池技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql数据库连接池如何配置(下面介绍一种)"><span class="toc-number">5.</span> <span class="toc-text">MySql数据库连接池如何配置(下面介绍一种)</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p>JSP使用JDBC技术实现与多种类型数据库的连接,主要有JDBC的四种驱动程序和数据库连接池技术。<br><a id="more"></a></p>
-<p>作为一个前端学习者最近在简单了解一下JSP、数据库方面的知识，把学习中的了解到的知识写成学习笔记跟大家一起分享一下。</p>
-<h2 id="JDBC是什么">JDBC是什么</h2><p>JDBC是一种用于执行SQL语句的JavaAPI,它是由一组用Java编写的类和接口组成。JDBC为工具/数据库开发人员提供了一个标准的API，使这些开发人员能用纯JavaAPI来编写数据库应用程序。通过使用JDBC，使得想各种关系数据库发送SQL语句进行数据库的访问变得更容易。说道这里，我想到前几天学JSP时，自己跟着书上的例子做了个简单的和数据库连接的登录注册，通过JDBC和数据库建立了连接，感觉还是很方便的。</p>
-<h2 id="JDBC的用途">JDBC的用途</h2><p>JDBC可以做的事情有</p>
+		<p>JS代码内嵌会导致页面发生阻塞，在使用 src 属性加载 JavaScript的过程中，浏览器必须先花时间下载外链文件中的代码，然后解析并执行它。在这个过程中，页面渲染和用户交互完全被阻塞了。<br><a id="more"></a></p>
 <ul>
-<li>与数据库建立连接</li>
-<li>发送SQL语句</li>
-<li>处理结果</li>
-</ul>
-<h2 id="JDBC和ODBC">JDBC和ODBC</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这两个名字，听上去就觉得有关系，JDBC（Java Data Base Connectivit，java数据库连接），ODBC（Open Database Connectivity，开放数据库互连）。<br>&nbsp;&nbsp;&nbsp;&nbsp;ODBC的结构包括四个主要的部分：应用程序接口、驱动接口、数据驱动和数据源。在JDBC出现之前，一般都利用它和数据库进行连接。在java出现了以后，由于ODBC使用C语言编写的Java程序员们就不得不在java程序中加入C语言的OBDC函数调用。<br>&nbsp;&nbsp;&nbsp;&nbsp;所以，JDBC就应运而生了，通过使用JDBC，开发人员就可以很方便地将SQL语句传送给几乎任何一种数据库。JDBC扩展了Java的能力，他们两个的结合就可以让开发人员在开发数据库应用的时候更加地等心应手。</p>
-<h2 id="数据库连接池技术">数据库连接池技术</h2><p>今天看书的时候知道了数据库连接池技术，听上去感觉很高大上，前段时间只是知道一点怎么创建命名连接，今天就来了解一下数据库连接池技术到底是何方神物吧！</p>
-<ul>
-<li>数据库连接池:简单来说就是数据库连接对象的一个缓冲池</li>
-<li>它的用法：我们可以先创建好多个数据库连接缓存在连接池中，当有用户发送请求过来时，DAO<blockquote>
-<p>DAO(Data Access Object) 数据访问对象是第一个面向对象的接口，它显露了 Microsoft Jet 数据库引擎（由 Microsoft Access 所使用），并允许 Visual Basic 开发者通过 ODBC 像直接连接到其他数据库一样，直接连接到 Access 表。DAO 最适用于单系统应用程序或小范围本地分布使用。</p>
-</blockquote>
+<li><p>JS代码内嵌会导致页面发生阻塞，在使用 src 属性加载 JavaScript的过程中，浏览器必须先花时间下载外链文件中的代码，然后解析并执行它。在这个过程中，页面渲染和用户交互完全被阻塞了。</p>
+</li>
+<li><p>常规做法是将<code>&lt;script&gt;</code>标签放在HTML文档的<code>&lt;head&gt;</code>或<code>&lt;body&gt;</code>中，但是这种做法会导致浏览器停止解析后面的内容，而是优先下载脚本文件，并直线代码。</p>
+</li>
+<li>虽然现在IE8等浏览器都允许并行下载JS文件，但是JS脚本在下载的过程中还是会阻塞其他的资源的下载，我们推荐的做法是将所有的<code>&lt;script&gt;</code>标签尽可能的放在<code>&lt;body&gt;</code>放到的底部，以尽量减少对整个页面的影响，并且需要注意的是尽可能将多个脚本文件集成到同一个JS文件中去，这样JS文件就只能产生一次HTTP请求。但是即时这样，还是会锁死浏览器一段时间。所以我们需要用到无阻塞脚本，也就是通过一定的技术向页面中逐步加载JS文件，秘诀就在于，在页面加载完成后才加载JS代码。实现的方式有很多种，</li>
+<li>延迟加载脚本，为<code>&lt;script&gt;</code>标签定义了一个扩展属性defer.当一个带有这个属性的JS文件下载时，它不会阻塞浏览器的其他进程，所以这类文件可以与其他的资源文件一起并行下载，defer 属性规定了脚本必须在页面加载完毕后执行。这样，脚本就可以从段落中请求数据了。但是只能在IE中运行</li>
+<li><code>HTML5&lt;script&gt;async</code>属性，这个属性规定一旦脚本可用，就会异步执行，它的作用个defer一样，能够异步加载和执行脚本</li>
+<li>动态脚本元素 </li>
+<li>使用<code>XMLHttpRequest(XHR)</code>对象,使用XHR对象下载JavaScript代码并注入页面。<code>XMLHttpRequest</code>是一个 JavaScript 对象,它最初由微软设计,随后被 Mozilla,Apple, 和 Google采纳. 如今,该对象已经被 W3C组织标准化. 通过它,你可以很容易的取回一个URL上的资源数据. 尽管名字里有XML, 但XMLHttpRequest 可以取回所有类型的数据资源,并不局限于XML. 而且除了HTTP ,它还支持file 和 ftp 协议.        <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">       <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">       xhr.open(<span class="string">"get"</span>, <span class="string">"script.js"</span>, <span class="literal">true</span>);</span><br><span class="line">       xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">               <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span> || xhr.status == <span class="number">304</span>) &#123;</span><br><span class="line">                   <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">                   script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">                   script.text = xhr.responseText;</span><br><span class="line">                   <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>就不必创建数据库连接，而是直接从数据库连接池中获取一个，用完了也不必关闭连接，而是将连接换回到池子当中，然后继续缓存。</p>
-<ul>
-<li>好处：通过上面对数据库连接池技术用法的描述，大家应该就可以感受到它的好处了<br>1、资源重用<br>2、更快的系统响应速度<br>3、新的资源分配手段</li>
-</ul>
-<h2 id="MySql数据库连接池如何配置(下面介绍一种)">MySql数据库连接池如何配置(下面介绍一种)</h2><ul>
-<li>在MySQL官网上下载，我下载的是mysql-connector-java-5.1.37.tar.gz</li>
-<li><p>配置Tomcat目录中的conf文件下的context.xml文件</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="constant">Resource</span> name=”jdbc/mysql”</span><br><span class="line"> auth=”<span class="constant">Container</span>”</span><br><span class="line"> type=”javax.sql.<span class="constant">DataSource</span>”</span><br><span class="line"> driverClassName=”com.mysql.jdbc.<span class="constant">Driver</span>”</span><br><span class="line"> url=”<span class="symbol">jdbc:</span><span class="symbol">mysql:</span>/<span class="regexp">/localhost:3306/test</span>”</span><br><span class="line"> username=”你的数据库用户名”</span><br><span class="line"> password=”你的密码”</span><br><span class="line"> maxActive=”<span class="number">100</span>″</span><br><span class="line"> maxIdle=”<span class="number">30</span>″</span><br><span class="line"> maxWait=”<span class="number">10000</span>″</span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>如果JDK是1.6之前的版本就要配置Web应用下WEB-INF\web.xml</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;resource-ref&gt;</span><br><span class="line"> &lt;res-ref-name&gt;jdbc/mysql&lt;/res-ref-name&gt;</span><br><span class="line"> &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;</span><br><span class="line"> &lt;res-auth&gt;Container&lt;/res-auth&gt;</span><br><span class="line"> &lt;/resource-ref&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置完就扩在java代码中访问连接池了</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import java.sql.*;</span><br><span class="line">import javax.sql.*;</span><br><span class="line">import javax.naming.*;</span><br><span class="line">try&#123;</span><br><span class="line"><span class="constant">InitialContext</span> ctx = new <span class="constant">InitialContext</span>();</span><br><span class="line"><span class="constant">DataSource</span> ds=(<span class="constant">DataSurce</span>)ctx.lookup(“<span class="symbol">java:</span>comp/env/jdbc/mysql”);</span><br><span class="line"><span class="constant">Connection</span> conn = ds.getConnection();</span><br><span class="line"><span class="constant">Statement</span> stmt = conn.createStatement();</span><br><span class="line"><span class="constant">String</span> strSql = “select * from student”;</span><br><span class="line">………….</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
+<p>参考文章：<br><a href="http://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/前端/">前端</a>►<a class="article-category-link" href="/categories/技术/前端/JavaScript/">JavaScript</a>►<a class="article-category-link" href="/categories/技术/前端/JavaScript/性能优化/">性能优化</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
+  </div>
 
 </div>
 
@@ -149,7 +138,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://smileshirely.github.io/2015/11/13/JSP数据库连接技术（一）/" data-title="JSP数据库连接技术（一） | 指间花开" data-tsina="1006592127" class="share clearfix">
+	  <div data-url="https://smileshirely.github.io/2016/03/06/JS性能优化/" data-title="JS性能优化 | 指间花开" data-tsina="1006592127" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -162,19 +151,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/11/15/《JavaScript高级程序设计》之引用类型/" title="《JavaScript高级程序设计》之引用类型">
-  <strong>上一篇：</strong><br/>
-  <span>
-  《JavaScript高级程序设计》之引用类型</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/10/23/servlet基础/"  title="servlet基础">
+<a href="/2016/03/06/2015前端百度学院JS题目/"  title="2015前端百度学院JS题目">
  <strong>下一篇：</strong><br/> 
- <span>servlet基础
+ <span>2015前端百度学院JS题目
 </span>
 </a>
 </div>
@@ -183,7 +164,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/11/13/JSP数据库连接技术（一）/" data-title="JSP数据库连接技术（一）" data-url="https://smileshirely.github.io/2015/11/13/JSP数据库连接技术（一）/"></div>
+	<div class="ds-thread" data-thread-key="2016/03/06/JS性能优化/" data-title="JS性能优化" data-url="https://smileshirely.github.io/2016/03/06/JS性能优化/"></div>
 </section>
 
 
@@ -193,7 +174,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC是什么"><span class="toc-number">1.</span> <span class="toc-text">JDBC是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC的用途"><span class="toc-number">2.</span> <span class="toc-text">JDBC的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC和ODBC"><span class="toc-number">3.</span> <span class="toc-text">JDBC和ODBC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库连接池技术"><span class="toc-number">4.</span> <span class="toc-text">数据库连接池技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql数据库连接池如何配置(下面介绍一种)"><span class="toc-number">5.</span> <span class="toc-text">MySql数据库连接池如何配置(下面介绍一种)</span></a></li></ol>
+ 
  
   </div>
 
